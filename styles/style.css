@@ -19,25 +19,23 @@ body {
 .content {
   background: url(../design/bg-vacancy.jpg) center center no-repeat;
   background-size: cover;
-  background-color: rgba(20, 29, 40, .8);
+  background-color: rgba(20, 29, 40, .6);
   background-blend-mode: darken;
   color: white;
+  padding: 10px;
 }
 .vacancy {
-  display: flex;
-  flex-wrap: wrap;
-  border: 1px solid black;
+  border: 1px solid #e2edf7;
   border-radius: 5px;
   padding: 20px;
+  position: relative;
 }
 .col {
   border-bottom: 1px solid #e2edf7;
-}
-.col:last-child {
-  border-bottom: none;
+  padding-bottom: 50px;
 }
 .col__title {
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 700;
   margin-bottom: 25px;
   color: #18A0FB;
@@ -49,20 +47,191 @@ body {
   line-height: 25px;
   color: #e2edf7;
 }
-.col__btn {
-  margin-bottom: 25px;
+
+/* Модальное окно */
+.modal__btn,
+.modal__btn-design {
+  display: none;
+}
+.modal__label,
+.modal__label-design,
+.form__btn {
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: #18A0FB;
+  letter-spacing: -0.015em;
+}
+.modal__label:hover {
+  background: #FFFFFF;
+  color: #18A0FB;
+  border: 1px solid #18A0FB;
+}
+.wrap-modal {
+  /* position: relative; */
+}
+.modal,
+.modal-design {
+  background: #597384;
+  border-radius: 5px;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  /* display: none; */
+}
+.modal__title {
+  font-size: 17px;
+  font-weight: 500;
+}
+.modal__list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 45px;
+}
+.modal__item {
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 40px;
+  font-size: 13px;
+}
+.modal__item:before {
+  padding-right: 10px;
+  font-weight: bold;
+  color: #C0C0C0;
+  content: "\2714";
+  transition-duration: 0.5s;
+  position: absolute;
+  left: 11px;
+}
+.modal__item:hover:before {
+  color: #18A0FB;
+  content: "\2714";
+}
+.form__input {
+  font-size: 10px;
+  margin-bottom: 10px;
+
+}
+.form__btn {
+  padding: 6px 8px;
+  background: #18A0FB;
+  font-size: 13px;
+  color: #e2edf7;
+}
+.close,
+.close-design {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 30px;
+  right: 5px;
+  cursor: pointer;
+  display: block;
+}
+.close:before,
+.close:after,
+.close-design:before,
+.close-design:after {
+  position: absolute;
+  content: '';
+  width: 2px;
+  height: 17px;
+  background: white;
+}
+.close:before,
+.close-design:before {
+  transform: rotate(45deg);
+}
+.close:after,
+.close-design:after {
+  transform: rotate(-45deg);
+}
+
+.modal__btn:checked+.modal,
+.modal__btn-design:checked+.modal-design {
+  display: block;
+}
+
+
+
+
+/* ------- */
+#button {
+  visibility: hidden; 
+  /* position: absolute;
+}
+#button2 {
+  visibility: hidden;
+  position: absolute;
+}
+.label {
+  /* position: absolute; */
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+  cursor: pointer;
   border: none;
   border-radius: 6px;
   letter-spacing: -0.015em;
   padding: 11px 15px;
-  display: inline-block;
   text-align: center;
   background: #18A0FB;
   color: #FFFFFF;
-  cursor: pointer;
 }
-.col__btn:hover {
+.label:hover {
   background: #FFFFFF;
   color: #18A0FB;
+  border: 1px solid #18A0FB;
+
+}
+.label2 {
+  /* position: absolute; */
+  border: 2px solid #18A0FB;
+  padding: 11px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s all ease;
+  transform: scale(0.8);
+  letter-spacing: -0.015em;
+  text-align: center;
+  color: #FFFFFF;
+}
+/* .modal {
+  border: 2px solid #e2edf7;
+  background-color: #18A0FB;
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  max-width: 250px;
+  display: none;
+} */
+.form {
+  display: flex;
+  flex-wrap: wrap;
+}
+.modal2 {
+  background: var(--bg);
+  border-radius: 50%;
+  transition: 0.5s all ease;
+  position: absolute;
+  top: 500px;
+  display: none;
 }
 
+#button:checked~.modal {
+  display: block;
+  /* border: 2px solid #e2edf7;
+  background-color: #18A0FB;
+  border-radius: 5px;
+  position: absolute;
+  top: 0; */
+}
+#button2:checked~.modal2 {
+  /* display: block; */
+  border: 2px solid #18A0FB;
+  background-color: #18A0FB;
+  border-radius: 0;
+  transition: all .4s;
+  transform: scale(1) rotate(0deg);
+} 
